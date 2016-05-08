@@ -1,0 +1,23 @@
+
+
+/* œ‘ æ”Ú√˚*/
+
+
+#domain {
+  position: absolute;
+  top: 10%;
+  left: 75%;
+  width: 400px;
+  height: 600px;
+  margin: -170px 0 0 -100px;  
+  background: url(../../images_new/melinda0722.com.png) 0 0 / 400px 600px no-repeat;
+  box-shadow: -7px 10px 10px #333;
+  transform: rotateX(60deg) rotateY(3deg) rotateZ(-25deg);
+  transform-origin:50% 50%;
+  transition: all 1s;
+  z-index:99999999;
+}
+#domain:hover  {
+  transform: rotate3d(0,0,0,0deg);
+  box-shadow: -100px 100px 20px ##003C73;
+}
