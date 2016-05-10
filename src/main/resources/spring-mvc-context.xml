@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       default-lazy-init="true"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="
+      http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+      http://www.springframework.org/schema/mvc
+      http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+      http://www.springframework.org/schema/context
+      http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+    <!-- 注解驱动 -->
+    <mvc:annotation-driven/>
+
+    <!-- 扫描包 -->
+    <context:component-scan base-package="com.songxu.controller"/>
+    <!-- 对静态资源文件的访问 不支持访问WEB-INF目录 -->
+    <mvc:default-servlet-handler/>
+
+
+    <!--解决json乱码问题-->
+    <mvc:annotation-driven>
+    <mvc:message-converters>
+        <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+            <property name="supportedMediaTypes">
+                <list>
+                    <value>application/json;charset=UTF-8</value>
+                </list>
+            </property>
+        </bean>
+    </mvc:message-converters>
+    </mvc:annotation-driven>
+
+
+</beans>

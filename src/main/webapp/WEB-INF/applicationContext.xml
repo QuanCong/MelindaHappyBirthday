@@ -1,45 +1,27 @@
 <?xml version="1.0" encoding="GBK"?>
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://www.springframework.org/schema/beans" xmlns:p="http://www.springframework.org/schema/p"
-	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns="http://www.springframework.org/schema/beans"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
-	http://www.springframework.org/schema/tx
-	http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
-	http://www.springframework.org/schema/aop
-	http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
-
-	<!-- StrutsAction -->
-	<bean name="loginAction" class="com.songxu.action.LoginAction">
-		<property name="checkInDao" ref="accessDao"></property>
-	</bean>
-	<bean name="serverControl" class="com.songxu.action.ServerControlAction">
-
-	</bean>
-	<bean name="logAction" class="com.songxu.action.LogAction">
-		<property name="logDaoQuery" ref="logDaoQuery"></property>
+	">
+	<!-- 将多个配置文件位置放到列表中 -->
+	<bean id="propertyResources" class="java.util.ArrayList">
+		<constructor-arg>
+			<list>
+				<!-- 这里支持多种寻址方式：classpath和file -->
+				<value>classpath:settings.properties</value>
+				<!--&lt;!&ndash; 推荐使用file的方式引入，这样可以将配置和代码分离 &ndash;&gt;
+				<value>file:/opt/demo/config/demo-mq.properties</value>
+				<value>file:/opt/demo/config/demo-remote.properties</value>-->
+			</list>
+		</constructor-arg>
 	</bean>
 
-	<bean name="dtuAction" class="com.songxu.action.DTUAction">
+	<!-- 将配置文件读取到容器中，交给Spring管理 -->
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations" ref="propertyResources" />
 	</bean>
-	<bean name="clientAction" class="com.songxu.action.ClientAction">
-	</bean>
-
-	<bean name="userPageAction" class="com.songxu.action.UserPageAction">
-		<property name="userPageDao" ref="userPageDao"></property>
-	</bean>
-
-	<bean name ="rateAction" class="com.songxu.action.RateAction">
-	
-	</bean>
-
-	<bean name ="rateAnalysisAction" class="com.songxu.action.RateAnalysisAction">
-		<property name="rateAnalysisDao" ref="rateAnalysisDao"></property>
-	</bean>
-
-	<!-- MemcachedOperate类 -->
-	<bean name="memcachedOperate" class="com.songxu.memcached.MemecachedOperate"></bean>
-
+	<import resource="classpath:spring-service-context.xml"/>
 
 
 </beans>

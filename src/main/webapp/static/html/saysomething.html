@@ -1,10 +1,99 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<style>
+    .box-comments .username
+    {
+        padding-bottom: 5px;
+        font-size: 20px;
 
-</body>
-</html>
+    }
+    .box-comments .box-comment img
+    {
+        width: 50px !important;
+        height: 50px !important;
+    }
+     .comment-text
+    {
+        margin-left: 60px !important;
+    }
+
+
+</style>
+
+
+<section class="content">
+    <!-- row -->
+    <div class="row">
+
+        <div class="col-md-12">
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">留个言吧</h3>
+
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse" id="noDisplay"><i class="fa fa-minus"></i>
+                        </button>
+                    </div>
+
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                <form class="form-horizontal">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <input  class="form-control" id="inputName" placeholder="姓名" ng-model="nameInput">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <textarea class="form-control" rows="3" placeholder="想对我说 ..." ng-model="msgInput"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-info "ng-click="submit()">提交</button>
+                        <button type="submit" class="btn btn-default pull-right" ng-click="cancel()">取消</button>
+                    </div>
+                    <!-- /.box-footer -->
+                </form>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="col-md-12">
+            <div class="box box-success"  ng-repeat="msg in msgs">
+
+                <!-- /.box-body -->
+                <div class="box-footer box-comments">
+
+                    <div class="box-comment">
+                        <!-- User image -->
+                        <img class="img-circle  " src="/static/img/head.jpg" alt="User Image">
+
+                        <div class="comment-text">
+                      <span class="username">
+                        {{msg.name}}
+                        <span class="text-muted pull-right">{{msg.timeString}}</span>
+                      </span><!-- /.username -->
+                            {{msg.msg}}
+                        </div>
+                        <!-- /.comment-text -->
+                    </div>
+                    <!-- /.box-comment -->
+
+                </div>
+                <!-- /.box-footer -->
+
+                <!-- /.box-footer -->
+            </div>
+
+
+        </div>
+        <!-- /.row -->
+
+
+</section>
