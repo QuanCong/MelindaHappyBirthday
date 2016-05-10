@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="GBK"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+
+	<!-- StrutsAction -->
+	<bean name="loginAction" class="com.songxu.action.LoginAction">
+		<property name="checkInDao" ref="accessDao"></property>
+	</bean>
+	<bean name="serverControl" class="com.songxu.action.ServerControlAction">
+
+	</bean>
+	<bean name="logAction" class="com.songxu.action.LogAction">
+		<property name="logDaoQuery" ref="logDaoQuery"></property>
+	</bean>
+
+	<bean name="dtuAction" class="com.songxu.action.DTUAction">
+	</bean>
+	<bean name="clientAction" class="com.songxu.action.ClientAction">
+	</bean>
+
+	<bean name="userPageAction" class="com.songxu.action.UserPageAction">
+		<property name="userPageDao" ref="userPageDao"></property>
+	</bean>
+
+	<bean name ="rateAction" class="com.songxu.action.RateAction">
+	
+	</bean>
+
+	<bean name ="rateAnalysisAction" class="com.songxu.action.RateAnalysisAction">
+		<property name="rateAnalysisDao" ref="rateAnalysisDao"></property>
+	</bean>
+
+	<!-- MemcachedOperate类 -->
+	<bean name="memcachedOperate" class="com.songxu.memcached.MemecachedOperate"></bean>
+
+
+
+</beans>
