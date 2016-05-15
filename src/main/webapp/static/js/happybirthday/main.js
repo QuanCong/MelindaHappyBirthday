@@ -93,6 +93,24 @@ $(document).ready(function () {
             timeoutNav();
         }
     }
+    $(".scroll-down").on('click',function () {
+        navigateDown();
+    })
+    /**
+     * 方向键翻页
+     */
+    $(document).on('keydown',function(e) {
+        if (!navigating) {
+            if (e.keyCode ==38) {
+                navigateUp();
+            } else if(e.keyCode ==40){
+                navigateDown();
+            }
+        }
+    });
+    /**
+     * 鼠标滚动翻页
+     */
     $(document).on('mousewheel DOMMouseScroll', function (e) {
         if (!navigating) {
             if (e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0) {

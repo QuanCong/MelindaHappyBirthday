@@ -404,7 +404,7 @@ html, body {
 }
 
 .additional-text {
-  top: 13.2rem;
+  top: 10%;
   left: 2rem;
   font-size: 3rem;
   line-height: 3;
@@ -468,11 +468,12 @@ html, body {
   font-size: 3rem;
   font-family: ptsans-regular;
   text-transform: uppercase;
-  bottom: 8rem;
+  bottom:5%;
   left: calc(50% - 15rem);
   color: #fff;
   width: 30rem;
   text-align: center;
+    cursor: pointer;
 }
 .scroll-down.removed {
   -webkit-transform: translateY(-20rem);
