@@ -52,7 +52,7 @@ public class MessageServiceImpl implements MessageService {
             /* 读入TXT文件 */
             File filename = new File(filePath); // 要读取以上路径的input。txt文件
             InputStreamReader reader = new InputStreamReader(
-                    new FileInputStream(filename)); // 建立一个输入流对象reader
+                    new FileInputStream(filename),"UTF-8"); // 建立一个输入流对象reader
             BufferedReader br = new BufferedReader(reader); // 建立一个对象，它把文件内容转成计算机能读懂的语言
             String line = "";
             line = br.readLine();
@@ -76,7 +76,7 @@ public class MessageServiceImpl implements MessageService {
         try {
              /* 写入Txt文件 */
             File writename = new File(filePath); // 相对路径，如果没有则要建立一个新的output。txt文件
-            BufferedWriter out = new BufferedWriter(new FileWriter(writename,true));
+            Writer out = new OutputStreamWriter(new FileOutputStream(writename,true), "UTF-8");
             //out.newLine();
             out.write(msg+ EOL); // 即为换行
             out.flush(); // 把缓存区内容压入文件

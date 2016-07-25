@@ -9,7 +9,7 @@
 		<constructor-arg>
 			<list>
 				<!-- 这里支持多种寻址方式：classpath和file -->
-				<value>classpath:settings.properties</value>
+				<value>file:/Users/songxu/Documents/settings.properties</value>
 				<!--&lt;!&ndash; 推荐使用file的方式引入，这样可以将配置和代码分离 &ndash;&gt;
 				<value>file:/opt/demo/config/demo-mq.properties</value>
 				<value>file:/opt/demo/config/demo-remote.properties</value>-->
